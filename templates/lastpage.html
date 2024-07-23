@@ -3,20 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questionnaire Results</title>
+    <title>Questionnaire</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Your Responses</h1>
-        <ul>
-            {% for question, answer in responses.items() %}
-                <li>
-                    <strong>{{ question }}:</strong> {{ answer }}
-                </li>
-            {% endfor %}
-        </ul>
-        <a href="{{ url_for('lastpage') }}">Go to next page</a>
+        <h1>Thank you for taking the questionnaire!</h1>
     </div>
 </body>
 </html> -->
@@ -25,24 +17,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questionnaire Results</title>
+    <title>Questionnaire</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container mt-5">
-        <div class="card">
-            <div class="card-body">
-                <h1 class="card-title">Your Responses</h1>
-                <ul class="list-group">
-                    {% for question, answer in responses.items() %}
-                        <li class="list-group-item">
-                            <strong>{{ question }}:</strong> {{ answer }}
-                        </li>
-                    {% endfor %}
-                </ul>
-                <a href="{{ url_for('lastpage') }}" class="btn btn-primary mt-4">Go to next page</a>
-            </div>
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Thank you for taking the questionnaire!</h1>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
