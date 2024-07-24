@@ -22,7 +22,7 @@
                 <p class="font-weight-bold mt-4">{{ questions[i].text }}</p>
                 {% for j in range(4) %}
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="group1_q{{ i+1 }}"
+                    <input class="form-check-input" type="radio" name="sample-1-q{{ i+1 }}"
                         value="{{ questions[i].options[j] }}" id="group1_q{{ i+1 }}-option{{ j+1 }}" required>
                     <label class="form-check-label" for="group1_q{{ i+1 }}-option{{ j+1 }}">
                         {{ questions[i].options[j] }}
@@ -52,7 +52,7 @@
                 <p class="font-weight-bold">{{ questions[i].text }}</p>
                 {% for j in range(4) %}
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="group2_q{{ i+1 }}"
+                    <input class="form-check-input" type="radio" name="sample-2-q{{ i+1 }}"
                         value="{{ questions[i].options[j] }}" id="group2_q{{ i+1 }}-option{{ j+1 }}" required>
                     <label class="form-check-label" for="group2_q{{ i+1 }}-option{{ j+1 }}">
                         {{ questions[i].options[j] }}
