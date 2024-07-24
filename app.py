@@ -10,6 +10,10 @@ contexts = get_contexts()
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///form.db"
+<<<<<<< HEAD
+=======
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+>>>>>>> 3f108611772aa7deb3bff0f74615348aeeb5862a
 db = SQLAlchemy(app)
 
 
@@ -57,6 +61,7 @@ def submit():
                 else:
                     responses[question_key] = 'Not answered'
         
+<<<<<<< HEAD
         response = Response(response=json.dumps(responses))
         response.q1_1 = responses['group1_q1']
         response.q1_2 = responses['group1_q2']
@@ -66,6 +71,15 @@ def submit():
         response.q2_3 = responses['group2_q3']
         db.session.add(response)
         db.session.commit()
+=======
+        # response = Response(response=json.dumps(responses))
+        # response.q1 = responses['q1']
+        # response.q2 = responses['q2']
+        # response.q3 = responses['q3']
+        # response.q4 = responses['q4']
+        # db.session.add(response)
+        # db.session.commit()
+>>>>>>> 3f108611772aa7deb3bff0f74615348aeeb5862a
 
         # 打印回答
         print(responses)
