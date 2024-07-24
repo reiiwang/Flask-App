@@ -54,13 +54,13 @@ def submit():
             else:
                 responses[question_key] = 'Not answered'
         
-        response = Response(response=json.dumps(responses))
-        response.q1 = responses['q1']
-        response.q2 = responses['q2']
-        response.q3 = responses['q3']
-        response.q4 = responses['q4']
-        db.session.add(response)
-        db.session.commit()
+        # response = Response(response=json.dumps(responses))
+        # response.q1 = responses['q1']
+        # response.q2 = responses['q2']
+        # response.q3 = responses['q3']
+        # response.q4 = responses['q4']
+        # db.session.add(response)
+        # db.session.commit()
 
         # Here you could save the responses to a database
         # For this example, we'll just print them
