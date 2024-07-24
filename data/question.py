@@ -1,21 +1,35 @@
+Contexts = [
+    {
+        "Evidence": "Evidence 1",
+        "Answer": "Answer 1"
+    },
+    {
+        "Evidence": "Evidence 2",
+        "Answer": "Answer 2"
+    },
+    {
+        "Evidence": "Evidence 3",
+        "Answer": "Answer 3"
+    }
+]
+
 questions = [
     {
-        "text": "Question 1: What is your favorite color?",
+        "text": "Question 1: Correct?",
         "options": ["Red", "Blue", "Green", "Yellow"]
     },
     {
-        "text": "Question 2: Which season do you prefer?",
+        "text": "Question 2: Fluent?",
         "options": ["Spring", "Summer", "Autumn", "Winter"]
     },
     {
-        "text": "Question 3: What's your preferred mode of transportation?",
+        "text": "Question 3: Cover all evidence?",
         "options": ["Car", "Bicycle", "Public Transport", "Walking"]
     },
-    {
-        "text": "Question 4: Which cuisine do you enjoy the most?",
-        "options": ["Italian", "Chinese", "Mexican", "Indian"]
-    }
 ]
+
+def get_contexts():
+    return Contexts
 
 def get_questions():
     return questions
