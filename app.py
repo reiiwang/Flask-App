@@ -8,7 +8,8 @@ import json
 questions = get_questions()
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///form.db"
+# app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///form.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 db = SQLAlchemy(app)
 
 
