@@ -66,8 +66,8 @@ def submit():
         # For this example, we'll just print them
         print(responses)
         # save to file
-        with open('responses.txt', 'a') as f:
-            f.write(str(responses) + '\n')
+        # with open('responses.txt', 'a') as f:
+        #     f.write(str(responses) + '\n')
         
         # You could also pass the responses to a template to display them
         return render_template('results.html', responses=responses)
