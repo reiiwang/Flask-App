@@ -61,15 +61,15 @@ def submit():
                 else:
                     responses[question_key] = 'Not answered'
         
-        response = Response(response=json.dumps(responses))
-        response.q1_1 = responses['group1_q1']
-        response.q1_2 = responses['group1_q2']
-        response.q1_3 = responses['group1_q3']
-        response.q2_1 = responses['group2_q1']
-        response.q2_2 = responses['group2_q2']
-        response.q2_3 = responses['group2_q3']
-        db.session.add(response)
-        db.session.commit()
+        # response = Response(response=json.dumps(responses))
+        # response.q1_1 = responses['group1_q1']
+        # response.q1_2 = responses['group1_q2']
+        # response.q1_3 = responses['group1_q3']
+        # response.q2_1 = responses['group2_q1']
+        # response.q2_2 = responses['group2_q2']
+        # response.q2_3 = responses['group2_q3']
+        # db.session.add(response)
+        # db.session.commit()
 
         # 打印回答
         print(responses)
