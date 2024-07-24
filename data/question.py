@@ -1,30 +1,30 @@
 Contexts = [
     {
-        "Evidence": "Evidence 1",
-        "Answer": "Answer 1"
+        "Evidence": "NTU is a good school",
+        "Answer": "He likes it"
     },
     {
-        "Evidence": "Evidence 2",
-        "Answer": "Answer 2"
+        "Evidence": "NTU is a bad school",
+        "Answer": "He don't like it"
     },
     {
-        "Evidence": "Evidence 3",
-        "Answer": "Answer 3"
+        "Evidence": "I like NTU\nI like coffee",
+        "Answer": "I like studying"
     }
 ]
 
 questions = [
     {
         "text": "Question 1: Correct?",
-        "options": ["Red", "Blue", "Green", "Yellow"]
+        "options": [1,2,3,4]
     },
     {
         "text": "Question 2: Fluent?",
-        "options": ["Spring", "Summer", "Autumn", "Winter"]
+        "options": [1,2,3,4]
     },
     {
         "text": "Question 3: Cover all evidence?",
-        "options": ["Car", "Bicycle", "Public Transport", "Walking"]
+        "options": [1,2,3,4]
     },
 ]
 

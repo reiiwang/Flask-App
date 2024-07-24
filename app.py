@@ -10,7 +10,6 @@ contexts = get_contexts()
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///form.db"
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 db = SQLAlchemy(app)
 
 
@@ -39,7 +38,11 @@ if not os.path.exists('form.db'):
         db.create_all()
 
 @app.route('/')
-def index():
+def home():
+    return render_template('home.html')
+
+@app.route('/form')
+def form():
     return render_template('index.html', questions=questions, contexts=contexts)
 
 @app.route('/lastpage')
@@ -58,15 +61,15 @@ def submit():
                 else:
                     responses[question_key] = 'Not answered'
         
-        # response = Response(response=json.dumps(responses))
-        # response.q1_1 = responses['group1_q1']
-        # response.q1_2 = responses['group1_q2']
-        # response.q1_3 = responses['group1_q3']
-        # response.q2_1 = responses['group2_q1']
-        # response.q2_2 = responses['group2_q2']
-        # response.q2_3 = responses['group2_q3']
-        # db.session.add(response)
-        # db.session.commit()
+        response = Response(response=json.dumps(responses))
+        response.q1_1 = responses['group1_q1']
+        response.q1_2 = responses['group1_q2']
+        response.q1_3 = responses['group1_q3']
+        response.q2_1 = responses['group2_q1']
+        response.q2_2 = responses['group2_q2']
+        response.q2_3 = responses['group2_q3']
+        db.session.add(response)
+        db.session.commit()
 
         # 打印回答
         print(responses)

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to our Questionnaire</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h2 class="display-4">Welcome to our Questionnaire</h1>
+            <p class="lead">We appreciate your participation in our survey. Your responses will help us gather valuable insights.</p>
+            <hr class="my-4">
+            <h3 class="mb-4">Guideline</h3>
+            <p>Before you start, please read the following guidelines:</p>
+            <ul>
+                <li>Answer all questions honestly.</li>
+                <li>Do not leave any question unanswered.</li>
+                <li>There are no right or wrong answers.</li>
+                <li>Your responses will be kept confidential.</li>
+            </ul>
+            <hr class="my-4">
+            <p>Click the button below to start the questionnaire. It should take about 10-15 minutes to complete.</p>
+            <a class="btn btn-primary btn-lg" href="{{ url_for('form') }}" role="button">Start Annotation</a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
