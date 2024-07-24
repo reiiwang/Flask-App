@@ -13,14 +13,35 @@
     <div class="container mt-5">
         <h1 class="mb-4">Questionnaire</h1>
         <form action="{{ url_for('submit') }}" method="post">
-            {% for i in range(4) %}
+            <!-- 第一個題組 -->
+            <p class="font-weight-bold">Evidence 1</p>
+            <p class="font-weight-bold">Answer 1</p>
+            {% for i in range(3) %}
             <div class="form-group question">
                 <p class="font-weight-bold">{{ questions[i].text }}</p>
-                {% for j in range(4) %}
+                {% for j in range(3) %}
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="q{{ i+1 }}" value="{{ questions[i].options[j] }}"
-                        id="q{{ i+1 }}-option{{ j+1 }}" required>
-                    <label class="form-check-label" for="q{{ i+1 }}-option{{ j+1 }}">
+                    <input class="form-check-input" type="radio" name="group1_q{{ i+1 }}" value="{{ questions[i].options[j] }}"
+                        id="group1_q{{ i+1 }}-option{{ j+1 }}" required>
+                    <label class="form-check-label" for="group1_q{{ i+1 }}-option{{ j+1 }}">
+                        {{ questions[i].options[j] }}
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+
+            <!-- 第二個題組 -->
+            <p class="font-weight-bold">Evidence 2</p>
+            <p class="font-weight-bold">Answer 2</p>
+            {% for i in range(3) %}
+            <div class="form-group question">
+                <p class="font-weight-bold">{{ questions[i].text }}</p>
+                {% for j in range(3) %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="group2_q{{ i+1 }}" value="{{ questions[i].options[j] }}"
+                        id="group2_q{{ i+1 }}-option{{ j+1 }}" required>
+                    <label class="form-check-label" for="group2_q{{ i+1 }}-option{{ j+1 }}">
                         {{ questions[i].options[j] }}
                     </label>
                 </div>
