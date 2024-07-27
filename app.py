@@ -53,8 +53,8 @@ def lastpage():
 def submit():
     if request.method == 'POST':
         responses = {}
-        for group in ['sample-1', 'sample-2']:
-            for i in range(1, 4):  # 假設每組有3個問題
+        for group in ['sample-1', 'sample-2', 'sample-3']:  # 假設有3組問題
+            for i in range(1, 5):  # 假設每組有3個問題
                 question_key = f'{group}-q{i}'
                 if question_key in request.form:
                     responses[question_key] = request.form[question_key]
