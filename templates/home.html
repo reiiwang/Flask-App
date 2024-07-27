@@ -5,24 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to our Questionnaire</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <div class="container mt-5">
         <div class="jumbotron">
-            <h2 class="display-4">Welcome to our Questionnaire</h1>
-            <p class="lead">We appreciate your participation in our survey. Your responses will help us gather valuable insights.</p>
+            <h2 class="display-4">Welcome 🧑‍💻</h1>
+            <p class="lead">We appreciate your participation in this annotation.</p>
+            <hr class="my-4">
+            <h3 class="mb-4">Background</h3>
+            <p style="font-size: large;"> Work的目標是產生一個QA dataset，
+                除了文章與其問題之外，它同時具有答案Answer與證據Evidence。</p>
+            <p style="font-size: large;">
+                我們的資料來源是MASH-QA， 
+                它是一個有關衛教的 Extractive QA 資料集， 
+                我們保留其中 3 個部分：文章、問題、答案(Extractive)。 
+                其中答案是由文章中的數個句子組成，句子間可能為連續或不連續片段。</p>
+            <p style="font-size: large;"> 現在我們將答案(Extractive)視為證據(Evidence)，
+                藉由LLM (PaLM 2)將Evidence做總結與重寫，
+                目標是產生一個相對口語化的答案(Answer)。
+                同時我們利用 textual entailment 的方式來規範答案(Answer) 
+                必須包含Evidence中每個句子的資訊，
+                換言之，答案並須包含Evidence，Evidence也要包含答案。</p>
             <hr class="my-4">
             <h3 class="mb-4">Guideline</h3>
-            <p>Before you start, please read the following guidelines:</p>
+            <!-- <p>Before you start, please read the following guidelines:</p> -->
             <ul>
-                <li>Answer all questions honestly.</li>
-                <li>Do not leave any question unanswered.</li>
-                <li>There are no right or wrong answers.</li>
-                <li>Your responses will be kept confidential.</li>
+                <li style="font-size: large;"> 我們將 Question, Evidence 視為 Ground truth，
+                    要評估的部分為Answer。
+                    每組sample我們會調查四個面向，
+                    包含 1.在語意上，證據是否包含答案(答案中的資訊是否超過證據)，
+                    2.在語意上，答案是否包含證據(答案是否包含證據中每個句子中的資訊)，
+                    3.答案的通順程度，4.無關第一、二點的考量，答案之於文章與問題是否正確。</li>
+                <li style="font-size: large;">每個問題都有四個選項，請選擇最符合的選項。</li>
+                <li style="font-size: large;">資料集本身為英文，為了方便閱讀與理解，旁邊都有由google translate翻譯的中文版，若有發現異常請閱讀英文版判斷。</li>
+                <li style="font-size: large;">如果您對於選項有任何疑問，請點擊選項下方的「Option definition」來查看選項的定義。</li>
+                <li style="font-size: large;">由於篇幅的關係，sample描述並沒有包含context，如果想進一步了解context可以點下方 「source context」查看</li>
+                <li style="font-size: large;">全部做完之後請點選Submit，下一頁會看到「Download the result」，請點選下載，並將檔案回傳給我。</li>
+                </li>
             </ul>
             <hr class="my-4">
-            <p>Click the button below to start the questionnaire. It should take about 10-15 minutes to complete.</p>
+            <p>Click the button below to start the questionnaire. It should take about 15-20 minutes to complete.</p>
             <a class="btn btn-primary btn-lg" href="{{ url_for('form') }}" role="button">Start Annotation</a>
         </div>
     </div>

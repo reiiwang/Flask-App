@@ -16,11 +16,13 @@
         <form action="{{ url_for('submit') }}" method="post">
             {% for idx in range(3) %}
             <h3 class="mb-3"><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp Sample {{ idx + 1 }}</h3>
-            <p class="font-weight-bold m-1" style="font-size: larger;">🔹Evidence: </p>
+            <p class="font-weight-bold m-1" style="font-size: large;">🔹Question: </p>
+            <p class="font-weight-bold m-1" style="font-size: large;">{{ contexts[idx].Question }}</p>
+            <p class="font-weight-bold m-1" style="font-size: large;">🔹Evidence: </p>
             {% for evidence in contexts[idx].Evidence %}
                 <p class="font-weight-bold m-1" style="font-size: large;">{{ evidence }}</p>
             {% endfor %}
-            <p class="font-weight-bold m-1" style="font-size: larger;">🔹Answer: </p>
+            <p class="font-weight-bold m-1" style="font-size: large;">🔹Answer: </p>
             <p class="font-weight-bold m-1" style="font-size: large;">{{ contexts[idx].Answer }}</p>
             {% for i in range(4) %}
             <div class="form-group question">
@@ -40,7 +42,7 @@
                             Option definition
                         </a>
                     </p>
-                    <div class="collapse mb-1" id="collapseOption{{ idx + 1 }}-{{ i + 1 }}-{{ j + 1 }}">
+                    <div class="collapse mb-3" id="collapseOption{{ idx + 1 }}-{{ i + 1 }}-{{ j + 1 }}">
                         <div class="card card-body">
                             {{ questions[i].options_note[j] }}
                         </div>
@@ -74,9 +76,22 @@
             Guidelines
         </a>
     </p>
-    <div class="collapse fixed-content mb-2" id="fixedCollapse">
+    <div class="collapse fixed-content mb-2" id="fixedCollapse" style="width: 650px;">
         <div class="card card-body">
-            This is the fixed collapse content.
+            <ul>
+                <li style="font-size: large;"> 我們將 Question, Evidence 視為 Ground truth，
+                    要評估的部分為Answer。
+                    每組sample我們會調查四個面向，
+                    包含 1.在語意上，證據是否包含答案(答案中的資訊是否超過證據)，
+                    2.在語意上，答案是否包含證據(答案是否包含證據中每個句子中的資訊)，
+                    3.答案的通順程度，4.無關第一、二點的考量，答案之於文章與問題是否正確。</li>
+                <li style="font-size: large;">每個問題都有四個選項，請選擇最符合的選項。</li>
+                <li style="font-size: large;">資料集本身為英文，為了方便閱讀與理解，旁邊都有由google translate翻譯的中文版，若有發現異常請閱讀英文版判斷。</li>
+                <li style="font-size: large;">如果您對於選項有任何疑問，請點擊選項下方的「Option definition」來查看選項的定義。</li>
+                <li style="font-size: large;">由於篇幅的關係，sample描述並沒有包含context，如果想進一步了解context可以點下方 「source context」查看</li>
+                <li style="font-size: large;">全部做完之後請點選Submit，下一頁會看到「Download the result」，請點選下載，並將檔案回傳給我。</li>
+                </li>
+            </ul>
         </div>
     </div>
 
