@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from data.question import get_questions, get_contexts
+from data.source import get_source
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -7,6 +8,7 @@ import json
 
 questions = get_questions()
 contexts = get_contexts()
+source = get_source()
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///form.db"
@@ -43,7 +45,7 @@ def home():
 
 @app.route('/form')
 def form():
-    return render_template('index.html', questions=questions, contexts=contexts)
+    return render_template('index.html', questions=questions, contexts=contexts, source=source)
 
 @app.route('/lastpage')
 def lastpage():
@@ -53,7 +55,8 @@ def lastpage():
 def submit():
     if request.method == 'POST':
         responses = {}
-        for group in ['sample-1', 'sample-2', 'sample-3']:  # 假設有3組問題
+        sample_list = [f'sample-{i}' for i in range(1, 23)]
+        for group in sample_list:  # 假設有3組問題
             for i in range(1, 5):  # 假設每組有3個問題
                 question_key = f'{group}-q{i}'
                 if question_key in request.form:
